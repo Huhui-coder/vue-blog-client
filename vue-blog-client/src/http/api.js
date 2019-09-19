@@ -1,5 +1,5 @@
 import axios from 'axios' // 注意先安装哦
-import config from './config.js' // 倒入默认配置
+import config from './config.js' // 导入默认配置
 import qs from 'qs' // 序列化请求数据，视服务端的要求
 
 export default function $axios (options) {
