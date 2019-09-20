@@ -1,5 +1,5 @@
 <template>
-<p>this is about page</p>
+<p>this is 401 page</p>
 </template>
 <script>
 export default {
@@ -7,16 +7,10 @@ export default {
     
   }),
   mounted(){
-    this.fetchData()
   },
 
   methods: {
-    fetchData: async function () {
-      const res = await this._api.test()
-      if (res.data.success) {
-        alert('请求成功')
-      }
-    }
+    
     
   }
 };

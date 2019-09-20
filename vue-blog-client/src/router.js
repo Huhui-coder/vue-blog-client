@@ -18,10 +18,16 @@ export default new Router({
                         import ( /* webpackChunkName: "about" */ './views/About.vue')
                 },
                 {
-                    path: '/Login',
+                    path: '/login',
                     name: 'Login',
                     component: () =>
                         import ( /* webpackChunkName: "Login" */ './views/Login.vue')
+                },
+                {
+                    path: '/article',
+                    name: 'article',
+                    component: () =>
+                        import ( /* webpackChunkName: "Login" */ './views/article.vue')
                 }
             ]
         },
@@ -32,10 +38,10 @@ export default new Router({
                 import ( /* webpackChunkName: "about" */ './views/About.vue')
         },
         {
-            path: '/Login',
-            name: 'Login',
+            path: '/401',
+            name: '401',
             component: () =>
-                import ( /* webpackChunkName: "Login" */ './views/Login.vue')
+                import ( /* webpackChunkName: "Login" */ './views/401.vue')
         }
     ]
 })

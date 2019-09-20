@@ -8,17 +8,17 @@ import axios from './api' // 倒入 api
 // 单独倒出
 export const test = params => {
     return axios({
-        url: '/users/test',
+        url: '/users/order',
         method: 'get',
         params
     })
 }
   
-export const mock = params => {
+export const login = data => {
     return axios({
-        url: '/mock',
-        method: 'get',
-        params
+        url: '/users/login',
+        method: 'post',
+        data
     })
 }
 
@@ -34,6 +34,6 @@ export const upload = data => {
 // 根绝需要进行  
 export default {
     test,
-    mock,
+    login,
     upload
 }

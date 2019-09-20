@@ -1,6 +1,7 @@
 import axios from 'axios' // 注意先安装哦
 import config from './config.js' // 导入默认配置
 import qs from 'qs' // 序列化请求数据，视服务端的要求
+import _this from '../main.js'
 
 export default function $axios (options) {
     return new Promise((resolve, reject) => {
@@ -18,11 +19,12 @@ export default function $axios (options) {
 
 			// Tip: 2 
 			// 带上 token , 可以结合 vuex 或者重 localStorage
-			// if (store.getters.token) {
-			//     config.headers['X-Token'] = getToken() // 让每个请求携带token--['X-Token']为自定义key 请根据实际情况自行修改
-			// } else {
-			//     // 重定向到登录页面    
-			// }
+			let token = localStorage.getItem('token');
+			if (token) {
+			    config.headers.Authorization = `Bearer ${token}`
+			} else {
+			    
+			}
 
 			// Tip: 3
 			// 根据请求方法，序列化传来的参数，根据后端需求是否序列化

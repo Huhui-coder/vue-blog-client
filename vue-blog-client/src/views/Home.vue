@@ -1,9 +1,10 @@
 <template>
-  <div>
+  <div class="wrap">
     <div class="navbar">
       <router-link to="/">home</router-link>
       <router-link to="/login">login</router-link>
       <router-link to="/about">about</router-link>
+      <router-link to="/article">article</router-link>
     </div>
     <div class="content">
       <router-view></router-view>
@@ -17,6 +18,11 @@ export default {
 };
 </script>
 <style lang="less" scoped>
+.wrap{
+  width: 100vw;
+  height: 100vh;
+  background-color: antiquewhite;
+}
 .navbar {
   list-style: none;
   text-align: center;
