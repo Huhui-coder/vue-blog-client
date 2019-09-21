@@ -1,19 +1,18 @@
 <template>
   <v-row align="center">
-    <div class="wlecome">欢迎登录~</div>
+    <div class="wlecome">欢迎注册~</div>
     <v-form ref="form" v-model="valid" :lazy-validation="lazy">
       <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
       <v-text-field v-model="password" :rules="passwordRules" label="password" required></v-text-field>
 
       <v-btn color="success" class="mr-4" @click="reset">重置</v-btn>
 
-      <v-btn color="error" class="mr-4" @click="validate">登录</v-btn>
+      <v-btn color="error" class="mr-4" @click="resgist">注册</v-btn>
+
     </v-form>
   </v-row>
 </template>
 <script>
-import { mapState, mapGetters, mapActions } from "vuex";
-
 export default {
   data: () => ({
     valid: true,
@@ -32,37 +31,24 @@ export default {
   }),
 
   methods: {
-    ...mapActions("userInfo", [
-      //userInfo是指modules文件夹下的userInfo.js
-      "asyncsetUserInfo" //userInfo.js文件中的actions里的方法
-    ]),
     validate() {
       if (this.$refs.form.validate()) {
         this.snackbar = true;
-        this.login();
+        this.login()
       }
     },
-    login: async function() {
+    resgist: async function () {
       const data = {
-        userName: this.name,
-        userPwd: this._md5(this.password)
-      };
-      const res = await this._api.login(data);
-      if (res.code == 0) {
-        window.localStorage.setItem("token", res.data.token);
-        //执行vuex中的Action方法
-        let playload = {
-          userInfo: this.name
-        };
-        this.asyncsetUserInfo(playload);
-        this.$router.push({
-          path: "/home"
-        });
+        userName:this.name,
+        userPwd:this._md5(this.password)
       }
+      const res = await this._api.register(data)
+      console.log(res)
+      
     },
-    reset: async function() {
-      const res = await this._api.test();
-      console.log(res);
+    reset: async function () {
+      const res = await this._api.test()
+      console.log(res)
     }
   }
 };

@@ -5,7 +5,7 @@ import axios from './api' // 倒入 api
  * 此处的数据依然来自 Easy Mock
  */
 
-// 单独倒出
+// 单独导出
 export const test = params => {
     return axios({
         url: '/users/order',
@@ -22,9 +22,9 @@ export const login = data => {
     })
 }
 
-export const upload = data => {
+export const register = data => {
     return axios({
-        url: '/upload',
+        url: '/users/register',
         method: 'post',
         data
     })
@@ -35,5 +35,5 @@ export const upload = data => {
 export default {
     test,
     login,
-    upload
+    register
 }

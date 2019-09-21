@@ -1,40 +1,29 @@
 <template>
-  <div class="wrap">
-    <div class="navbar">
-      <router-link to="/">home</router-link>
-      <router-link to="/login">login</router-link>
-      <router-link to="/about">about</router-link>
-      <router-link to="/article">article</router-link>
-    </div>
-    <div class="content">
-      <router-view></router-view>
-    </div>
-  </div>
+<p>this is home page</p>
 </template>
-
 <script>
 export default {
-  components: {}
+  data: () => ({
+    
+  }),
+  mounted(){
+    this.fetchData()
+  },
+
+  methods: {
+    fetchData: async function () {
+      const res = await this._api.test()
+      if (res.data.success) {
+        alert('请求成功')
+      }
+    }
+    
+  }
 };
 </script>
 <style lang="less" scoped>
-.wrap{
-  width: 100vw;
-  height: 100vh;
-  background-color: antiquewhite;
-}
-.navbar {
-  list-style: none;
+.wlecome {
+  width: 80vw;
   text-align: center;
-  & > a {
-    text-decoration: none;
-    margin: 20px;
-  }
-}
-.content {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 </style>

@@ -52,10 +52,10 @@ export default function $axios (options) {
 			console.log(errorInfo)
 			if (errorInfo) {
 				// error =errorInfo.data//页面那边catch的时候就能拿到详细的错误信息,看最下边的Promise.reject
-				const errorStatus = errorInfo.status; // 404 403 500 ... 等
-				router.push({
-					path: `/error/${errorStatus}`
-				})
+				// const errorStatus = errorInfo.status; // 404 403 500 ... 等
+				// router.push({
+				// 	path: `/error/${errorStatus}`
+				// })
 			}
 			return Promise.reject(error) // 在调用的那边可以拿到(catch)你想返回的错误信息
         }
@@ -137,6 +137,7 @@ export default function $axios (options) {
 				}
 			}
 			console.error(err)
+
             // 此处我使用的是 element UI 的提示组件
 			// Message.error(`ERROR: ${err}`);
 			return Promise.reject(err) // 返回接口返回的错误信息
