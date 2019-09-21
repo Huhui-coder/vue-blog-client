@@ -53,7 +53,11 @@ export default {
 .wrap {
   width: 100vw;
   height: 100vh;
-  background-color: antiquewhite;
+  background-color: #fff;
+  img{
+    width: 100vw;
+    height: 100vh;
+  }
 }
 .navbar {
   width: 100%;
@@ -102,7 +106,7 @@ export default {
 }
 .fade-enter-to,
 .fade-leave {
-  transform: translateX(-50%);
+  transform: translateX(0);
   opacity: 1;
 }
 </style>

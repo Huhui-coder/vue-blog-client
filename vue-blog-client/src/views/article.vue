@@ -1,39 +1,33 @@
 <template>
-  <div>
-    <p>this is article page</p>
-    <div class="article-wrap">
-      <div class="article-list">
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
-        <li>5</li>
-        <li>6</li>
-        <li>7</li>
-      </div>
-    </div>
+  <div class="wrap">
+    <article-list :list=list></article-list>
   </div>
 </template>
 <script>
+import articleList from "../components/articleList";
 export default {
-  data: () => ({}),
+  components: {
+    articleList
+  },
+  data: () => ({
+    list:[]
+  }),
   mounted() {
     this.fetchData();
   },
 
   methods: {
     fetchData: async function() {
-      const res = await this._api.test();
-      if (res.data.success) {
-        alert("请求成功");
-      }
+      const res = await this._api.fetchArticle();
+      this.list = res.data;
     }
   }
 };
 </script>
 <style lang="less" scoped>
-.wlecome {
-  width: 80vw;
+.wrap {
+  margin-top: 63px;
+  width: 70vw;
   text-align: center;
 }
 </style>

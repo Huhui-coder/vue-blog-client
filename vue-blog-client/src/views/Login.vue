@@ -1,6 +1,9 @@
 <template>
+<div class="wrap">
   <v-row align="center">
-    <div class="wlecome">欢迎登录~</div>
+    <div class="wlecome">
+    <img src="../assets/img-6.jpeg" alt />
+      </div>
     <v-form ref="form" v-model="valid" :lazy-validation="lazy">
       <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
       <v-text-field v-model="password" :rules="passwordRules" label="password" required></v-text-field>
@@ -10,6 +13,7 @@
       <v-btn color="error" class="mr-4" @click="validate">登录</v-btn>
     </v-form>
   </v-row>
+  </div>
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
@@ -51,10 +55,13 @@ export default {
       if (res.code == 0) {
         window.localStorage.setItem("token", res.data.token);
         //执行vuex中的Action方法
-        let playload = {
+        let playloadInfo = {
           userInfo: this.name
         };
-        this.asyncsetUserInfo(playload);
+        this.asyncsetUserInfo(playloadInfo);
+
+        
+
         this.$router.push({
           path: "/home"
         });
@@ -71,5 +78,12 @@ export default {
 .wlecome {
   width: 80vw;
   text-align: center;
+  height: calc(100vh - 64px);
+  img{
+    margin-top: 64px;
+    width: 100%;
+    height: 100%;
+    padding-right: 10px;
+  }
 }
 </style>

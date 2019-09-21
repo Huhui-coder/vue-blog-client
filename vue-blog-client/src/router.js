@@ -39,20 +39,32 @@ export default new Router({
                     name: 'article',
                     component: () =>
                         import ( /* webpackChunkName: "Login" */ './views/article.vue')
+                },
+                {
+                    path: '/article-detail/:id',
+                    name: 'articleDetail',
+                    component: () =>
+                        import ( /* webpackChunkName: "Login" */ './views/articleDetail.vue')
+                },
+                {
+                    path: '/edit',
+                    name: 'edit',
+                    component: () =>
+                        import ( /* webpackChunkName: "Login" */ './views/edit.vue')
                 }
             ]
-        },
-        {
-            path: '/about',
-            name: 'about',
-            component: () =>
-                import ( /* webpackChunkName: "about" */ './views/About.vue')
         },
         {
             path: '/401',
             name: '401',
             component: () =>
                 import ( /* webpackChunkName: "Login" */ './views/401.vue')
+        },
+        {
+            path: '*',
+            name: 'home',
+            component: () =>
+                import ( /* webpackChunkName: "Login" */ './views/Home.vue')
         }
     ]
 })

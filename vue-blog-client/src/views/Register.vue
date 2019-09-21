@@ -1,6 +1,9 @@
 <template>
+<div class="wrap">
   <v-row align="center">
-    <div class="wlecome">欢迎注册~</div>
+    <div class="wlecome">
+    <img src="../assets/img-7.jpeg" alt />
+    </div>
     <v-form ref="form" v-model="valid" :lazy-validation="lazy">
       <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
       <v-text-field v-model="password" :rules="passwordRules" label="password" required></v-text-field>
@@ -11,6 +14,7 @@
 
     </v-form>
   </v-row>
+  </div>
 </template>
 <script>
 export default {
@@ -57,5 +61,12 @@ export default {
 .wlecome {
   width: 80vw;
   text-align: center;
+  height: calc(100vh - 64px);
+  img{
+    margin-top: 64px;
+    width: 100%;
+    height: 100%;
+    padding-right:10px;
+  }
 }
 </style>

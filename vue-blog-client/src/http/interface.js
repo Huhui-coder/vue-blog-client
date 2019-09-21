@@ -30,10 +30,44 @@ export const register = data => {
     })
 }
 
+export const uploadImg = data => {
+    return axios({
+        url: '/upload/single',
+        method: 'post',
+        data
+    })
+}
+
+export const fetchArticle = params => {
+    return axios({
+        url: '/article',
+        method: 'get',
+        params
+    })
+}
+export const addArticle = params => {
+    return axios({
+        url: '/users/addArticle',
+        method: 'get',
+        params
+    })
+}
+
+export const detailArticle = params => {
+    return axios({
+        url: '/article/detail',
+        method: 'get',
+        params
+    })
+}
 // 默认全部倒出
 // 根绝需要进行  
 export default {
     test,
     login,
-    register
+    register,
+    uploadImg,
+    fetchArticle,
+    addArticle,
+    detailArticle
 }
