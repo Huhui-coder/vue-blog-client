@@ -45,6 +45,20 @@ export const fetchArticle = params => {
         params
     })
 }
+export const fetchArticleList = params => {
+    return axios({
+        url: '/article/typeList',
+        method: 'get',
+        params
+    })
+}
+export const filterArticleList = params => {
+    return axios({
+        url: '/article/type',
+        method: 'get',
+        params
+    })
+}
 export const addArticle = params => {
     return axios({
         url: '/users/addArticle',
@@ -69,5 +83,7 @@ export default {
     uploadImg,
     fetchArticle,
     addArticle,
-    detailArticle
+    detailArticle,
+    fetchArticleList,
+    filterArticleList
 }

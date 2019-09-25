@@ -1,5 +1,8 @@
 <template>
-<p>this is about page</p>
+<div class="wrap">
+<p>2019届计算机科学与技术本科毕业生</p>
+<p>职业方向大前端</p>
+</div>
 </template>
 <script>
 export default {
@@ -11,19 +14,15 @@ export default {
   },
 
   methods: {
-    fetchData: async function () {
-      const res = await this._api.test()
-      if (res.data.success) {
-        alert('请求成功')
-      }
-    }
+    
     
   }
 };
 </script>
 <style lang="less" scoped>
-.wlecome {
-  width: 80vw;
+.wrap{
+  margin-top: 163px;
   text-align: center;
 }
+
 </style>

@@ -8,10 +8,10 @@
       </div>
       <div class="navbar-right" v-if="getUserInfo == ''">
         <router-link to="/login">Login</router-link>
-        <router-link to="/register">Register</router-link>
+        <!-- <router-link to="/register">Register</router-link> -->
       </div>
       <div class="navbar-right" v-else>
-          <a href="javascript:return false;">{{getUserInfo}}</a>
+          <a href="javascript:return false;" style="fontSize:25px;color:#fff">{{getUserInfo}}</a>
           <a href="javascript:return false;" @click="logoout()">logo out</a>
       </div>
     </div>
@@ -27,6 +27,21 @@
 import {mapState,mapGetters,mapActions} from 'vuex'; 
 export default {
   components: {},
+  // watch:{
+  //   '$route.path': function (newVal, oldVal) {
+  //  if (newVal === '') {
+  //   //  if(this.getUserInfo == ''){
+  //   //     this.$router.push({
+  //   //       path: "/login"
+  //   //     });
+  //   //  }else{
+  //   //    this.$router.push({
+  //   //       path: "/home"
+  //   //     });
+  //   //  }
+  //  }
+  // }
+  // },
   computed:{
     //   ...mapState({  //指的是userinfo文件下面的userinfo state 属性
     //       userInfo:state=>state.userInfo.userInfo
@@ -40,6 +55,7 @@ export default {
       "asyncsetUserInfo" //userInfo.js文件中的actions里的方法
     ]),
       logoout(){
+        localStorage.setItem('token','')
           let playload = {
           userInfo: ''
         };
@@ -101,12 +117,12 @@ export default {
   transition: all 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(100%);
+  transform: translateX(0);
   opacity: 0;
 }
 .fade-enter-to,
 .fade-leave {
-  transform: translateX(0);
+  transform: translateX(100%);
   opacity: 1;
 }
 </style>

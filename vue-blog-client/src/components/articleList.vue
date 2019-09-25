@@ -56,6 +56,7 @@ export default {
   position: relative;
   transition: all 0.3s;
   cursor: pointer;
+  text-align: center;
   &:hover {
     top: -9px;
     background-color: #e4dfdf;
@@ -69,6 +70,7 @@ export default {
       -webkit-box-orient: vertical;
       font-size: 18px;
       color: rgb(85, 79, 79);
+      height: 20vh;
     }
   }
   .bootom {
