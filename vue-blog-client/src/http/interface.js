@@ -8,7 +8,7 @@ import axios from './api' // 倒入 api
 // 单独导出
 export const test = params => {
     return axios({
-        url: '/users/order',
+        url: '/users/token',
         method: 'get',
         params
     })

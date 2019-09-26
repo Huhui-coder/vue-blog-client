@@ -54,7 +54,9 @@ export default {
       navigation: true // 导航目录
     }
   }),
-  mounted() {},
+  mounted() {
+    this.TokenAuth()
+  },
 
   methods: {
     // 绑定@imgAdd event
@@ -79,6 +81,14 @@ export default {
          this.$router.push({
           path: "/article"
         });
+      }
+    },
+    TokenAuth: async function() {
+      const res = await this._api.test();
+      if (res.code == 0) {
+        alert("请求成功");
+      }else{
+        alert('Token 验证已过期')
       }
     },
     $save() {

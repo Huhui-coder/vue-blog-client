@@ -14,6 +14,7 @@ Vue.use(mavonEditor);
 
 Vue.config.productionTip = false;
 Vue.prototype._md5 = md5;
+Vue.prototype._router = router
 Vue.prototype._moment = moment;//赋值使用
 Vue.filter('dateformat', function (dataStr, pattern = 'YYYY-MM-DD hh:mm:ss') {  //将moment注册为全局过滤器
   if (dataStr) {

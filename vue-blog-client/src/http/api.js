@@ -2,6 +2,8 @@ import axios from 'axios' // 注意先安装哦
 import config from './config.js' // 导入默认配置
 import qs from 'qs' // 序列化请求数据，视服务端的要求
 import _this from '../main.js'
+import router from "../router";
+
 
 export default function $axios (options) {
     return new Promise((resolve, reject) => {
@@ -95,6 +97,14 @@ export default function $axios (options) {
 			
 					case 401:
 					err.message = '未授权，请登录'
+					 /**
+						加入请求状态码拦截，当状态码为401时，弹出错误，并将路由跳转至登陆页面
+					*/
+					alert('未授权，请登录')
+					router.push({
+						path: "/login"
+					  });
+
 					break
 			
 					case 403:
