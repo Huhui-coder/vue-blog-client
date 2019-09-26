@@ -52,6 +52,13 @@ export const fetchArticleList = params => {
         params
     })
 }
+export const editArticle = data => {
+    return axios({
+        url: '/article/edit',
+        method: 'post',
+        data
+    })
+}
 export const filterArticleList = params => {
     return axios({
         url: '/article/type',
@@ -74,6 +81,14 @@ export const detailArticle = params => {
         params
     })
 }
+
+export const delectlArticle = params => {
+    return axios({
+        url: '/article/delect',
+        method: 'get',
+        params
+    })
+}
 // 默认全部倒出
 // 根绝需要进行  
 export default {
@@ -85,5 +100,7 @@ export default {
     addArticle,
     detailArticle,
     fetchArticleList,
-    filterArticleList
+    filterArticleList,
+    editArticle,
+    delectlArticle
 }

@@ -14,6 +14,7 @@
     "mavon-editor": "^2.7.6",
     "moment": "^2.24.0",
     "qs": "^6.8.0",
+    "svg-sprite-loader": "^4.1.6",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
     "vuetify": "^2.0.0",

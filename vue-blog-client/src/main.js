@@ -7,7 +7,7 @@ import md5 from "js-md5";
 import moment from 'moment' //引入moment 时间格式化插件
 import mavonEditor from "mavon-editor"; //引入文本编辑器
 import "mavon-editor/dist/css/index.css";
-
+import './icons/index'  //引入icon图标
 import api from "./http/index";
 Vue.use(api);
 Vue.use(mavonEditor);

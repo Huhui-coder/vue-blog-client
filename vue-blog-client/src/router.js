@@ -67,6 +67,15 @@ const router = new Router({
                         import ( /* webpackChunkName: "Login" */ './views/articleDetail.vue')
                 },
                 {
+                    path: '/edit/:id',
+                    name: 'edit',
+                    meta: {
+                        title: 'edit'
+                    },
+                    component: () =>
+                        import ( /* webpackChunkName: "Login" */ './views/edit.vue')
+                },
+                {
                     path: '/edit',
                     name: 'edit',
                     meta: {

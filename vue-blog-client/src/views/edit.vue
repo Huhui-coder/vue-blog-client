@@ -27,7 +27,6 @@ export default {
     typeRules: [
       v => !!v || "type is required",
       v => (v && v.length <= 10) || "Name must be less than 10 characters"
-
     ],
     context: " ", //输入的数据
     toolbars: {
@@ -55,10 +54,25 @@ export default {
     }
   }),
   mounted() {
-    this.TokenAuth()
+    this.TokenAuth();
+    this.fetchData();
   },
 
   methods: {
+    fetchData: async function() {
+      if (this.$route.params.id) {
+        let params = {
+          articleId: this.$route.params.id
+        };
+        const res = await this._api.detailArticle(params);
+        if (res.code == 0) {
+          let content = res.data[0];
+          this.title = content.title;
+          this.type = content.type;
+          this.context = content.content;
+        }
+      }
+    },
     // 绑定@imgAdd event
     $imgAdd: async function(pos, $file) {
       var formdata = new FormData();
@@ -70,25 +84,40 @@ export default {
       delete this.img_file[pos];
     },
     addData: async function() {
-    let params = {
-        userId:'720190921100728',
-        title:this.title,
-        type:this.type,
-        content:this.context
-    }
-      const res = await this._api.addArticle(params);
-      if (res.code == 0) {
-         this.$router.push({
-          path: "/article"
-        });
+      let params = {
+        userId: "720190921100728",
+        title: this.title,
+        type: this.type,
+        content: this.context
+      };
+      if (this.$route.params.id) {  //如果id存在，则为更改现有文章
+      let data = {
+        userId: "720190921100728",
+        title: this.title,
+        type: this.type,
+        content: this.context,
+        articleId:this.$route.params.id
+      };
+        const res = await this._api.editArticle(data);
+        if (res.code == 0) {
+          this.$router.push({
+            path: "/article-detail/"+this.$route.params.id
+          });
+        }
+      } else { //id不存在，则为新增文章
+        const res = await this._api.addArticle(params);
+        if (res.code == 0) {
+          this.$router.push({
+            path: "/article"
+          });
+        }
       }
     },
     TokenAuth: async function() {
       const res = await this._api.test();
       if (res.code == 0) {
-        alert("请求成功");
-      }else{
-        alert('Token 验证已过期')
+      } else {
+        alert("Token 验证已过期");
       }
     },
     $save() {

@@ -1,9 +1,23 @@
 <template>
   <div class="wrap">
-    <div class="list" v-for="(item,index) in list" :key="index" @click="toDetail(item.articleId)">
+    <div class="list" v-for="(item,index) in list" :key="index">
       <div class="top">
-        <div class="title">{{item.title}}</div>
-        <div class="content">
+        <div class="title">
+          {{item.title}}
+          <div class="ml" v-if="getUserInfo !=''">
+            <svg-icon
+              :icon-class="'edit'"
+              :class-name="'ml'"
+              @svg-Edit-click="OnEditClick(item.articleId)"
+            ></svg-icon>
+            <svg-icon
+              :icon-class="'delete'"
+              :class-name="'ml'"
+              @svg-Delect-click="OnDelectClick(item.articleId)"
+            ></svg-icon>
+          </div>
+        </div>
+        <div class="content" @click="toDetail(item.articleId)">
           <mavon-editor
             class="md"
             :value="item.content"
@@ -23,6 +37,8 @@
   </div>
 </template>
 <script>
+import { mapState, mapGetters, mapActions } from "vuex";
+
 export default {
   data: () => ({}),
   props: ["list"],
@@ -37,12 +53,37 @@ export default {
         scrollStyle: true
       };
       return data;
-    }
+    },
+    ...mapGetters("userInfo", {
+      //指的是userinfo.js文件下的  getuserinfo getter方法
+      getUserInfo: "getUserInfo"
+    })
   },
 
   methods: {
+    OnEditClick(id) {
+      this.$router.push({ path: "/edit/" + id });
+    },
+    OnDelectClick: async function(id) {
+      const params = {
+        articleId: id
+      };
+      const res = await this._api.delectlArticle(params);
+      if (res.code == 0) {
+        this.$emit("flash-list");//通知父组件进行刷新页面的操作
+        console.log("ok");
+      } else {
+      }
+    },
+
     toDetail(id) {
       this.$router.push({ path: "/article-detail/" + id });
+    },
+    Edit() {
+      console.log("click");
+      this.$router.push({
+        path: "/edit"
+      });
     }
   }
 };
@@ -80,5 +121,9 @@ export default {
     font-size: 15px;
     color: #aaa;
   }
+}
+.ml {
+  display: inline-flex;
+  margin-left: 20px;
 }
 </style>
