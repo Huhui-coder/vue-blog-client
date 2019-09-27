@@ -1,24 +1,27 @@
 <template>
-<div class="wrap">
-  <v-row align="center">
-    <div class="wlecome">
-    <img src="../assets/img-6.jpeg" alt />
+  <div class="wrap">
+    <v-row align="center">
+      <div class="wlecome">
+        <img src="../assets/img-6.jpeg" alt />
       </div>
-    <v-form ref="form" v-model="valid" :lazy-validation="lazy">
-      <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
-      <v-text-field v-model="password"
-            :rules="[rules.required, rules.min]"
-            name="input-10-1"
-            label="password"
-            hint="At least 8 characters"
-            counter
-            @click:append="show = !show"></v-text-field>
+      <v-form ref="form" v-model="valid" :lazy-validation="lazy">
+        <v-text-field v-model="name" :counter="10" :rules="nameRules" label="Name" required></v-text-field>
+        <v-text-field
+          v-model="password"
+          :rules="[rules.required, rules.min]"
+          name="input-10-1"
+          label="password"
+          :type="'password'"
+          hint="At least 8 characters"
+          counter
+          @click:append="show = !show"
+        ></v-text-field>
 
-      <v-btn color="success" class="mr-4" @click="reset">重置</v-btn>
+        <v-btn color="success" class="mr-4" @click="reset">重置</v-btn>
 
-      <v-btn color="error" class="mr-4" @click="validate">登录</v-btn>
-    </v-form>
-  </v-row>
+        <v-btn color="error" class="mr-4" @click="validate">登录</v-btn>
+      </v-form>
+    </v-row>
   </div>
 </template>
 <script>
@@ -40,11 +43,12 @@ export default {
     checkbox: false,
     lazy: false,
     show: false,
-        rules: {
-          required: value => !!value || 'Required.',
-          min: v => v.length >= 8 || 'Min 8 characters',
-          emailMatch: () => ('The email and password you entered don\'t match'),
-  }}),
+    rules: {
+      required: value => !!value || "Required.",
+      min: v => v.length >= 8 || "Min 8 characters",
+      emailMatch: () => "The email and password you entered don't match"
+    }
+  }),
 
   methods: {
     ...mapActions("userInfo", [
@@ -71,8 +75,6 @@ export default {
         };
         this.asyncsetUserInfo(playloadInfo);
 
-        
-
         this.$router.push({
           path: "/home"
         });
@@ -90,7 +92,7 @@ export default {
   width: 80vw;
   text-align: center;
   height: calc(100vh - 64px);
-  img{
+  img {
     margin-top: 64px;
     width: 100%;
     height: 100%;
