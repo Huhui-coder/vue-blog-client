@@ -19,7 +19,7 @@ npm run build
 - [√] 权限控制，未登录时，不可进行文章的发表，编辑和删除操作。
 
 部分系统截图
-![](https://ftp.bmp.ovh/imgs/2019/09/4c2ab2b7deeb4941.png)
+![屏幕快照 2019-09-27 下午7.34.14.png](https://ftp.bmp.ovh/imgs/2019/09/4c2ab2b7deeb4941.png)
 ![屏幕快照 2019-09-27 下午7.34.11.png](https://i.loli.net/2019/09/27/CoyKgTIBZjqvW4a.png)
 ![屏幕快照 2019-09-27 下午7.36.30.png](https://i.loli.net/2019/09/27/X9INiBOzETYyphG.png)
 ![屏幕快照 2019-09-27 下午7.34.42.png](https://i.loli.net/2019/09/27/75oapNMIEuvlcf3.png)
