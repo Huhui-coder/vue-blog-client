@@ -11,7 +11,7 @@
         <!-- <router-link to="/register">Register</router-link> -->
       </div>
       <div class="navbar-right" v-else>
-          <a href="javascript:return false;" style="fontSize:25px;color:#fff">{{getUserInfo}}</a>
+          <a href="javascript:return false;" style="fontSize:25px;color:red">{{getUserInfo}}</a>
           <a href="javascript:return false;" @click="logoout()">logo out</a>
       </div>
     </div>
