@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div hw-animate="fadeInUp" class="wrap">
     <v-form ref="form" v-model="valid" lazy-validation>
       <v-text-field v-model="title" :counter="10" :rules="titleRules" label="title" required></v-text-field>
       <v-text-field v-model="type" :rules="typeRules" label="type" required></v-text-field>
@@ -15,6 +15,8 @@
   </div>
 </template>
 <script>
+import { runAnimate } from '@/common/animate'
+
 export default {
   data: () => ({
     valid: true,
@@ -56,6 +58,7 @@ export default {
   mounted() {
     this.TokenAuth();
     this.fetchData();
+    runAnimate()
   },
 
   methods: {

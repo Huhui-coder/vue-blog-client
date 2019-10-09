@@ -1,12 +1,14 @@
 <template>
   <div class="wrap">
     <img src="../assets/img-1.jpeg" alt />
-    <p class="text">{{text}}</p>
-    <p class="go" @click="doEdit()" v-if="getUserInfo != ''">_去写博客</p>
+    <p hw-animate="fadeIn" class="text">{{text}}</p>
+    <p hw-animate="fadeIn delay-1d5s" class="go" @click="doEdit()" v-if="getUserInfo != ''">_去写博客</p>
   </div>
 </template>
 <script>
 import {mapState,mapGetters,mapActions} from 'vuex'; 
+import { runAnimate } from '@/common/animate'
+
 
 export default {
   data: () => ({
@@ -19,6 +21,7 @@ export default {
   },
   mounted() {
     this.changText()
+    runAnimate()
   },
 computed:{
     ...mapGetters('userInfo',{  //指的是userinfo.js文件下的  getuserinfo getter方法

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div hw-animate="fadeInUp" class="wrap">
     <div class="type-list">
       <li @click="doEdit()" v-if="getUserInfo != ''">去写博客</li>
       <li @click="filterType('')">全部</li>
@@ -11,6 +11,8 @@
 <script>
 import articleList from "../components/articleList";
 import { mapState, mapGetters, mapActions } from "vuex";
+import { runAnimate } from '@/common/animate'
+
 export default {
   components: {
     articleList
@@ -28,6 +30,7 @@ export default {
   mounted() {
     this.fetchData();
     this.fetchList();
+    runAnimate();
   },
 
   methods: {

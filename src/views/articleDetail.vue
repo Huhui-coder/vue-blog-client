@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div hw-animate="fadeInUp" class="wrap">
     <div class="list">
       <div class="top">
         <div class="title">{{content.title}}</div>
@@ -23,12 +23,15 @@
   </div>
 </template>
 <script>
+import { runAnimate } from '@/common/animate'
+
 export default {
   data: () => ({
     content: {}
   }),
   mounted() {
     this.fetchData();
+    runAnimate()
   },
   computed: {
     prop() {

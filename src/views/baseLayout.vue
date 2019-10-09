@@ -16,9 +16,7 @@
       </div>
     </div>
     <div class="content">
-      <transition name="fade">
         <router-view></router-view>
-      </transition>
     </div>
   </div>
 </template>
@@ -111,18 +109,5 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-.fade-enter-active,
-.fade-leave-active {
-  transition: all 0.5s;
-}
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
-  transform: translateX(0);
-  opacity: 0;
-}
-.fade-enter-to,
-.fade-leave {
-  transform: translateX(100%);
-  opacity: 1;
 }
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="wrap">
+  <div class="wrap" hw-animate="fadeInUp">
     <v-row align="center">
       <div class="wlecome">
         <img src="../assets/img-6.jpeg" alt />
@@ -26,6 +26,8 @@
 </template>
 <script>
 import { mapState, mapGetters, mapActions } from "vuex";
+import { runAnimate } from '@/common/animate'
+
 
 export default {
   data: () => ({
@@ -49,6 +51,9 @@ export default {
       emailMatch: () => "The email and password you entered don't match"
     }
   }),
+  mounted(){
+    runAnimate()
+  },
 
   methods: {
     ...mapActions("userInfo", [
