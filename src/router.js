@@ -12,7 +12,7 @@ const router = new Router({
                 title: 'Hit'
             },
             component: () =>
-                        import ( /* webpackChunkName: "about" */ './views/baseLayout.vue'),
+                import ( /* webpackChunkName: "about" */ './views/baseLayout.vue'),
             children: [{
                     path: '/about',
                     name: 'about',
@@ -21,7 +21,7 @@ const router = new Router({
                     },
                     component: () =>
                         import ( /* webpackChunkName: "about" */ './views/About.vue')
-                },{
+                }, {
                     path: '/home',
                     name: 'home',
                     meta: {
@@ -110,12 +110,12 @@ const router = new Router({
         }
     ]
 })
-router.beforeEach((to,from,next)=>{
+router.beforeEach((to, from, next) => {
     window.document.title = to.meta.title;
     next();
-  })
-  router.afterEach((to,form,next)=>{
-    window.scrollTo(0,0)
-  })
+})
+router.afterEach((to, form, next) => {
+    window.scrollTo(0, 0)
+})
 
 export default router
