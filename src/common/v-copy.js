@@ -34,7 +34,7 @@ const vCopy = {
       document.body.removeChild(textarea);
     };
     // 绑定点击事件，就是所谓的一键 copy 啦
-    el.addEventListener('click', el.handler);
+    el.addEventListener('click',  el.handler);
   },
   // 当传进来的值更新的时候触发
   componentUpdated(el, { value }) {
