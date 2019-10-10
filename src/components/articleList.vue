@@ -71,7 +71,6 @@ export default {
       const res = await this._api.delectlArticle(params);
       if (res.code == 0) {
         this.$emit("flash-list");//通知父组件进行刷新页面的操作
-        console.log("ok");
       } else {
       }
     },
