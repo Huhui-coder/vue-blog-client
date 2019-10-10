@@ -8,6 +8,7 @@ const router = new Router({
     routes: [{
             path: '/',
             name: 'baselayout',
+            redirect: '/home',
             meta: {
                 title: 'Hit'
             },
