@@ -87,28 +87,28 @@ export default {
       delete this.img_file[pos];
     },
     addData: async function() {
-      let params = {
+      let adddata = {
         userId: "720190921100728",
         title: this.title,
         type: this.type,
         content: this.context
       };
       if (this.$route.params.id) {  //如果id存在，则为更改现有文章
-      let data = {
+      let editdata = {
         userId: "720190921100728",
         title: this.title,
         type: this.type,
         content: this.context,
         articleId:this.$route.params.id
       };
-        const res = await this._api.editArticle(data);
+        const res = await this._api.editArticle(editdata);
         if (res.code == 0) {
           this.$router.push({
             path: "/article-detail/"+this.$route.params.id
           });
         }
       } else { //id不存在，则为新增文章
-        const res = await this._api.addArticle(params);
+        const res = await this._api.addArticle(adddata);
         if (res.code == 0) {
           this.$router.push({
             path: "/article"

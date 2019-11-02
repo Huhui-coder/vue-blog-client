@@ -33,7 +33,8 @@ import { runAnimate } from "@/common/animate";
 export default {
   data: () => ({
     content: {},
-    copyText: ""
+    copyText: "",
+    articleId:''
   }),
   mounted() {
     this.fetchData();
@@ -54,6 +55,7 @@ export default {
 
   methods: {
     fetchData: async function() {
+      this.articleId = this.$route.params.id
       let params = {
         articleId: this.$route.params.id
       };

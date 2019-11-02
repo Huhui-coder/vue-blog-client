@@ -66,11 +66,11 @@ export const filterArticleList = params => {
         params
     })
 }
-export const addArticle = params => {
+export const addArticle = data => {
     return axios({
         url: '/users/addArticle',
-        method: 'get',
-        params
+        method: 'post',
+        data
     })
 }
 
