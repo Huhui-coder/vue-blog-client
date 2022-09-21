@@ -18,7 +18,7 @@
     "svg-sprite-loader": "^4.1.6",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
-    "vuetify": "^2.0.0",
+    "vuetify": "^2.6.10",
     "vuex": "^3.0.1"
   },
   "devDependencies": {
