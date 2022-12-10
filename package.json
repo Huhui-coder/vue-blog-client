@@ -14,7 +14,7 @@
     "js-md5": "^0.7.3",
     "mavon-editor": "^2.7.6",
     "moment": "^2.24.0",
-    "qs": "^6.8.0",
+    "qs": "^6.5.3",
     "svg-sprite-loader": "^4.1.6",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",
